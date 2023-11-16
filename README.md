@@ -5,4 +5,6 @@ Simple perspective-based sprite animator system
 
 Just a little system for creating Doom-style billboarded sprites that update based on the camera's perspective.
 
-PlayerAnimation code implements deadzones to prevent cases where the camera's location would cause the Player sprite to flicker between perspectives.
+Sprite3DPerspective script swaps between sprites in a sprite array. Works for environmental objects.
+
+PlayerAnimation script uses an Animator to apply animations based on the camera's perspective. Requires the Player component. Script also implements deadzones to prevent cases where the camera's location would cause the Player sprite to flicker between perspectives.
