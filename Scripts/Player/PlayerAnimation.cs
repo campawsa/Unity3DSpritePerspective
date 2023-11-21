@@ -49,7 +49,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         //updates camera perspective index if angle is outside dead zones
         //within deadzones, angle only updates if current angle has a difference of [threshold] from previous frame, in degrees
-        //hopefully prevents float weirdness :(
+        //hopefully prevents float weirdness :)
 
         float yAngleAbs = Mathf.Abs(yAngle);
 

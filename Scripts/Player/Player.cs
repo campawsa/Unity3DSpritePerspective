@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     private Transform _camera;
 
     //movement
-    private Vector3 _playerVelocity;
+    private Vector3 _playerMovement;
     private float _moveSpeed = 2.8f;
 
     void Start()
@@ -43,16 +43,12 @@ public class Player : MonoBehaviour
         {
             float moveTargetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0, moveTargetAngle, 0);
-
             Vector3 moveDirection = Quaternion.Euler(0, moveTargetAngle, 0) * Vector3.forward;
-            _playerVelocity = (moveDirection * _moveSpeed * Time.deltaTime);
+            _playerMovement = (moveDirection * _moveSpeed * Time.deltaTime);
         }
-        else
-        {
-            _playerVelocity = new Vector3(0, _playerVelocity.y, 0); //controller velocity doesn't work without explicitly settings values to 0
-        }
+        else _playerMovement = Vector3.zero;
 
-        _controller.Move(_playerVelocity);
+        _controller.Move(_playerMovement);
     }
 
     private void CalculateAnimations()
