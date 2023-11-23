@@ -44,11 +44,11 @@ public class Player : MonoBehaviour
             float moveTargetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0, moveTargetAngle, 0);
             Vector3 moveDirection = Quaternion.Euler(0, moveTargetAngle, 0) * Vector3.forward;
-            _playerMovement = (moveDirection * _moveSpeed * Time.deltaTime);
+            _playerMovement = (moveDirection * _moveSpeed);
         }
         else _playerMovement = Vector3.zero;
 
-        _controller.Move(_playerMovement);
+        _controller.Move(_playerMovement * Time.deltaTime);
     }
 
     private void CalculateAnimations()
