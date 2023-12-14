@@ -17,7 +17,6 @@ public class PlayerAnimation : MonoBehaviour
     //dead zones prevent float weirdness when walking toward/away from camera, and when walking diagonally
     private float _mirrorDeadZone = 4f; //dead zone in degrees
     private float _angleDeadZone = 4f; //degrees
-    private float _deadZoneDifferenceThreshold = 10f; //degrees
     
     void Start()
     {
@@ -49,7 +48,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         //updates camera perspective index if angle is outside dead zones
         //within deadzones, angle only updates if current angle has a difference of [threshold] from previous frame, in degrees
-        //hopefully prevents float weirdness :)
+        //hopefully prevents float weirdness :3
 
         float yAngleAbs = Mathf.Abs(yAngle);
 
@@ -59,7 +58,8 @@ public class PlayerAnimation : MonoBehaviour
         else
         {
             float lastAngleAbs = Mathf.Abs(lastAngle);
-            if (Mathf.Abs(yAngleAbs - lastAngleAbs) > _deadZoneDifferenceThreshold)
+            float deadZoneDifferenceThreshold = _angleDeadZone + 1;
+            if (Mathf.Abs(yAngleAbs - lastAngleAbs) > deadZoneDifferenceThreshold)
             {
                 _cameraAngleIndex = CameraPerspective(yAngle);
             }
