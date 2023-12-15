@@ -39,8 +39,8 @@ public class PlayerAnimation : MonoBehaviour
 
         float yAngleAbs = Mathf.Abs(yAngle);
 
-        if (yAngleAbs < 45) return 0;
-        else if (yAngleAbs >= 45 && yAngleAbs < 135) return 1;
+        if (yAngleAbs < 60) return 0;
+        else if (yAngleAbs >= 60 && yAngleAbs < 120) return 1;
         else return 2;
     }
 
@@ -52,9 +52,9 @@ public class PlayerAnimation : MonoBehaviour
 
         float yAngleAbs = Mathf.Abs(yAngle);
 
-        if (IsPerspectiveUpdateRange(yAngleAbs, 0, 45)) _cameraAngleIndex = 0;
-        else if (IsPerspectiveUpdateRange(yAngleAbs, 45, 135)) _cameraAngleIndex = 1;
-        else if (IsPerspectiveUpdateRange(yAngleAbs, 135, 180)) _cameraAngleIndex = 2;
+        if (IsPerspectiveUpdateRange(yAngleAbs, 0, 60)) _cameraAngleIndex = 0;
+        else if (IsPerspectiveUpdateRange(yAngleAbs, 60, 120)) _cameraAngleIndex = 1;
+        else if (IsPerspectiveUpdateRange(yAngleAbs, 120, 180)) _cameraAngleIndex = 2;
         else
         {
             float lastAngleAbs = Mathf.Abs(lastAngle);
