@@ -20,7 +20,7 @@ public class PlayerAnimation : MonoBehaviour
     
     void Start()
     {
-        _animator = _sprite.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _renderer = _sprite.GetComponent<SpriteRenderer>();
     }
 
